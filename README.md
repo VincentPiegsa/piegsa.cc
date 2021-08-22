@@ -1,2 +1,2 @@
-# vincentpiegsa.de
+# piegsa.cc
 my (soon to be) homepage
