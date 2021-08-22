@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if post %}
+<div id="post-head">
+	{% if post.img %}
+		<img class="responsive-img" src="{{ url_for('static', filename=post.img) }}">
+	{% endif %}
+
+	<h1>{{ post.title }}</h1>
+	<h4>{{ post.subtitle }}</h4>
+</div>
+
+<hr/>
+
+{% block post_body %}
+
+{% endblock %}
+
+<hr/>
+
+<div id="post-foot" style="margin-top: 50px;">
+
+	<h4>These posts might interest you:</h4>
+
+	<div class="row">
+
+		{% for recommended_post in recommended_posts %}
+		<div class="col l4 s12" style="height: 450px;">
+			
+			<div class="card hoverable sticky-action">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator responsive-img thumbnail" src="{{ url_for('static', filename=recommended_post.img) }}">
+				</div>
+				<div class="card-content">
+					<div class="card-content">
+						<div class="card-title activator grey-text text-darken-4">
+							<i class="material-icons right">more_vert</i>
+							<p style="width: 90%;">{{ recommended_post.title }}</p>
+						</div>
+					</div>
+				</div>
+				<div class="card-action grey lighten-4">
+					<a class="btn waves-effect waves-dark grey-text text-darken-4 white" href="{{ url_for('blog.archive_post', post=recommended_post.url) }}">Read More<i class="material-icons right">chevron_right</i></a>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">{{ recommended_post.title }}<i class="material-icons right">close</i></span>
+					<hr/>
+					<p class="card-subtitle" style="font-size: 16px;">{{ recommended_post.subtitle }}</p>
+				</div>
+				</div>
+		</div>
+		{% endfor %}
+		
+	</div>
+</div>
+{% endif %}
+
+{% endblock %}

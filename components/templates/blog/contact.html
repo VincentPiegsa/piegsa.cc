@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="subheading">Contact</h1>
+
+<hr/>
+
+<div class="row">
+	<div class="col l7 s12">
+		<h3 class="subsubheading">About Me</h3>
+		<p class="flow-text">
+			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+		</p>
+	</div>
+	<div class="col l4 offset-l1 s12">
+		<h3 class="subsubheading">Socials</h3>
+		<ul>
+			<li><i class="fa fa-youtube-play fa-lg"></i> <a class="link-hover light flow-text" href="https://www.youtube.com/channel/UC79fsGLmn36NnS25beoVB3Q" style="color: rgb(20, 20, 20); font-size: 20px;">YouTube</a></li>
+			<li><i class="fa fa-twitter fa-lg"></i> <a class="link-hover light flow-text" href="https://twitter.com/vincentpiegsa" style="color: rgb(20, 20, 20); font-size: 20px;">Twitter</a></li>
+			<li><i class="fa fa-github fa-lg"></i> <a class="link-hover light flow-text" href="https://github.com/VincentPiegsa" style="color: rgb(20, 20, 20); font-size: 20px;">GitHub</a></li>
+		</ul>
+	</div>
+</div>
+
+<hr/>
+
+<div class="row">
+	<h3 class="subsubheading">You want to contact me directly?</h3>
+	<p class="flow-text">
+		You can contact me directly by filling in the contact box below. Your data and inquiry will be handled with absolute discretion.
+	</p>
+</div>
+
+<form method="GET" action="">
+	<div class="row">
+		<div class="input-field col s12">
+			<i class="material-icons prefix">email</i>
+			<input id="email" type="email" class="validate">
+			<label for="email">Email</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s12">
+			<i class="material-icons prefix">mode_edit</i>
+			<textarea id="message" class="materialize-textarea"></textarea>
+			<label for="message">Message</label>
+		</div>
+	</div>
+	<div class="row">
+		<button class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Submit <i class="material-icons right">send</i></button>
+	</div>
+</form>
+
+{% endblock %}

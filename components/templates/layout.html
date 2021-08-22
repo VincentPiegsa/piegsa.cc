@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>{{ title }} - piegsa.cc</title>
+	{% else %}
+		<title>piegsa.cc</title>
+	{% endif %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="author" content="Vincent Piegsa">
+	<meta name="description" content="Vincent Piegsa piegsa.cc">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:100|Work+Sans:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+    	body {
+    		display: flex;
+    		min-height: 100vh;
+    		flex-direction: column; 
+    		font-family: 'Work Sans', sans-serif;
+    		background-color: rgb(253, 253, 253);
+    	}
+
+    	main {
+    		flex: 1 0 auto;
+    	}
+
+    	h1, h2, h3, h4, h5, h6 {
+    		font-family: 'Oswald', sans-serif;
+ 			text-transform: uppercase;
+ 			font-weight: 100;
+
+    	}
+
+    	.flow-text {
+    		font-size: 20px;
+    		text-align: justify;
+    	}
+
+    	.card-subtitle {
+    		font-size: 18px;
+    	}
+
+    	a.dark.link-hover {
+    		text-decoration: underline;
+    		text-decoration-color: rgba(20, 20, 20, 0.0); 
+    		transition: 0.3s;
+    	}
+
+    	a.dark.link-hover:hover {
+    		text-decoration: underline; 
+    		text-decoration-color: rgba(255, 255, 255, 1.0);
+    	}
+
+    	a.light.link-hover {
+    		text-decoration: underline;
+    		text-decoration-color: rgba(252, 252, 252, 0.0); 
+    		transition: 0.3s;
+    	}
+
+    	a.light.link-hover:hover {
+    		text-decoration: underline; 
+    		text-decoration-color: rgba(50, 50, 50, 1.0);
+    	}
+
+    	a.nav-item {
+    		margin-left: 20px;
+    		text-decoration: underline;
+    		text-decoration-color: rgba(0, 0, 0, 0.0);
+    	}
+
+    	a.nav-item:hover {
+    		text-decoration-color: rgba(255, 255, 255, 1.0);
+    		transition: 0.3s;
+    	}
+
+    	div.truncate {
+    		width: 100%;
+    		white-space: pre-wrap;
+    		overflow: hidden;
+    		text-overflow: ellipsis;
+    		text-align: justify;
+    	}
+
+    	img.thumbnail {
+    		max-height: 200px;
+    		overflow: hidden;
+    	}
+    </style>
+</head>
+<body>
+
+	<header>
+		<div class="navbar-fixed">
+			<nav style="background-color: rgba(0, 0, 0, 0.8);">
+				<div class="nav-wrapper" style="width: 50%; margin: 0 auto;">
+					<a class="brand-logo" href="">piegsa.cc</a>
+					<a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						<li><a class="nav-item" href="{{ url_for('blog.home') }}">Home</a></li>
+						<li><a class="nav-item" href="{{ url_for('blog.archive') }}">Archive</a></li>
+						<li><a class="nav-item" href="{{ url_for('blog.contact') }}">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<ul class="sidenav" id="mobile-nav">
+			<li><a href="{{ url_for('blog.home') }}">Home</a></li>
+			<li><a href="{{ url_for('blog.archive') }}">Archive</a></li>
+			<li><a href="{{ url_for('blog.contact') }}">Contact</a></li>
+		</ul>
+	</header>
+
+	<main>
+		<div class="container" style="width: 60%;">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</main>
+
+	<footer class="page-footer" style="background-color: rgb(245, 245, 247); margin-top: 50px;">
+		<div class="container" style="width: 50%;">
+			<div class="row">
+				<div class="col l4 offset-l1 s12">
+					<h5 class="grey-text text-darken-3">Contact</h5>
+					<ul>
+						<li class="grey-text text-darken-2">Vincent Piegsa</li>
+						<li><a  class="grey-text text-darken-2 light link-hover" href="mailto:vincent.piegsa@gmail.com">vincent.piegsa@gmail.com</a></li>
+					</ul>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="grey-text text-darken-3">Socials</h5>
+					<ul>
+						<li><a class="grey-text text-darken-2 light link-hover" href="https://www.youtube.com/channel/UC79fsGLmn36NnS25beoVB3Q">YouTube</a></li>
+						<li><a class="grey-text text-darken-2 light link-hover" href="https://twitter.com/vincentpiegsa">Twitter</a></li>
+						<li><a class="grey-text text-darken-2 light link-hover" href="https://github.com/VincentPiegsa">GitHub</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright" style="background-color: rgb(245, 245, 247); border-top: 1px solid rgb(230, 230, 230);">
+			<div class="container grey-text text-darken-2" style="text-align: center;">
+				&copy; 2021 <a class="grey-text text-darken-2 light link-hover" href="/">Vincent Piegsa</a>
+			</div>
+		</div>
+	</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+			$('.sidenav').sidenav();
+			$(".dropdown-trigger").dropdown();
+		});
+    </script>
+</body>
+</html>

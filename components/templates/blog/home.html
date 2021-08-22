@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="row">
+
+	<div class="col l5 s12">
+	{% if news_articles %}
+
+		<h3>News</h3>
+
+		<div class="row">
+
+			{% for news in news_articles %}
+			<div class="col s12">
+				<div class="card horizontal hoverable row">
+					<div class="card-stacked">
+						<div class="card-content">
+							<div class="row">
+								<div class="col s2">
+									<i class="fa fa-{{ news.platform }} fa-3x"></i>
+								</div>
+								<div class="col s10">
+									<p class="flow-text" style="font-size: 16px;">{{ news.content }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-action grey lighten-4">
+							<a class="btn waves-effect waves-dark grey-text text-darken-4 white" href="{{ news.url }}">View <i class="material-icons right">chevron_right</i></a>
+						</div>
+					</div>
+				</div>
+
+			</div>	
+			{% endfor %}
+
+		</div>
+
+	{% endif %}
+	</div>
+
+	<div class="col l6 offset-l1 s12">
+	{% if posts %}
+		
+		<h3>Recent Posts</h3>
+
+		<div class="row">
+			{% for post in posts %}
+			<div class="col s12">
+				<div class="card horizontal hoverable row">
+					<div class="card-stacked">
+						<div class="card-content">
+							<span class="card-title">{{ post.title }}</span>
+							<hr/>
+							<p class="flow-text" style="font-size: 16px;">{{ post.subtitle }}</p>
+						</div>
+						<div class="card-action grey lighten-4">
+							<a class="btn waves-effect waves-dark grey-text text-darken-4 white" href="{{ url_for('blog.archive_post', post=post.url) }}">Read More <i class="material-icons right">chevron_right</i></a>
+						</div>
+					</div>
+				</div>
+
+			</div>	
+			{% endfor %}
+		</div>
+
+	{% endif %}
+	</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="margin-bottom: 50px;">
+
+	<h1 class="subheading">Archive</h1>
+
+	<hr/>
+
+	<p class="flow-text">
+		All posts are archived here. If you want to search a specific post, you can simply type in its title in the search bar.
+	</p>
+
+	<div class="row" style="max-width: 500px; margin: 0 auto;">
+		<form action="" method="GET">
+			<div class="col s10">
+				<input type="text" name="search" placeholder="search">
+			</div>
+			<div class="col s2">
+				<button class="btn white waves-effect waves-dark" type="submit" style="margin-bottom: -20px;"><i class="material-icons" style="color: rgb(0, 0, 0);">search</i></button>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+{% if posts %}
+<div class="row" style="margin-top: 25px;">
+
+	{% for post in posts %}
+		<div class="col l4 s12" style="height: 450px; margin-bottom: 50px;">
+			
+			<div class="card hoverable sticky-action">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator responsive-img thumbnail" src="{{ url_for('static', filename=post.img) }}">
+				</div>
+				<div class="card-content">
+					<div class="card-content">
+						<div class="card-title activator grey-text text-darken-4">
+							<i class="material-icons right">more_vert</i>
+							<p style="width: 90%;">{{ post.title }}</p>post
+						</div>
+					</div>
+				</div>
+				<div class="card-action grey lighten-4">
+					<a class="btn waves-effect waves-dark grey-text text-darken-4 white" href="{{ url_for('blog.archive_post', post=post.url) }}">Read More<i class="material-icons right">chevron_right</i></a>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">{{ post.title }}<i class="material-icons right">close</i></span>
+					<hr/>
+					<p class="card-subtitle" style="font-size: 16px;">{{ post.subtitle }}</p>
+				</div>
+				</div>
+		</div>
+	{% endfor %}
+
+</div>
+{% endif %}
+
+{% endblock %}
